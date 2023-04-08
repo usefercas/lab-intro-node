@@ -20,9 +20,9 @@ describe("SortedList", () => {
       list = new SortedList();
     });
     it("should add a single value to SortedList", () => {
-      assert.equal(list.length, 0);
+      assert.equal(list.items.length, 0);
       list.add(1);
-      assert.equal(list.length, 1);
+      assert.equal(list.items.length, 1); // test corregido, es aposta?
     });
     it("should add a third value to SortedList", () => {
       list.add(30);

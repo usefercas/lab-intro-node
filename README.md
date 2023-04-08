@@ -97,7 +97,6 @@ $ npm test
       2) should add a single value to SortedList
       3) should add a third value to SortedList
       4) should add a value while keeping the list sorted
-    #get(i)
       5) should return an OutOfBounds exception if there is no element in that position
       6) should return the element in that position
     #max()

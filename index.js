@@ -1,17 +1,89 @@
 class SortedList {
-  constructor() {}
+  constructor() {
+    this.items = [];
+    this.length = this.items.length;
+  }
 
-  add(item) {}
+  add(item) {
+    this.items.push(item);
+    this.items = this.items.sort((a, b) => a - b);
+  }
 
-  get(pos) {}
+  get(pos) {
+    let respuesta = this.items[pos];
+    if (!respuesta) {
+      throw new Error('OutOfBounds');
+    }
+    return respuesta;
+  }
 
-  max() {}
+  //->max() {
+  // if (this.items < 1) {
+  //   throw new Error('EmptySortedList');
+  // }
 
-  min() {}
+  //-> let response = 0;
+  //->this.items.array.forEach(item => {
+  //->if (response < item) {
+  //>response = item;
+  //-->}
+  //->});
+  //->return response;
+  //->}
 
-  sum() {}
+  max() {
+    if (this.items.length === 0) {
+      throw new Error('EmptySortedList');
+    }
 
-  avg() {}
+    let response = this.items[0];
+    this.items.forEach(item => {
+      if (response < item) {
+        response = item;
+      }
+    });
+
+    return response;
+  }
+
+
+  // min() { }
+  min() {
+    if (this.items.length === 0) {
+      throw new Error('EmptySortedList');
+    }
+
+    let response = 0;
+    this.items.forEach(item => {
+      if (response > item) {
+        response = item;
+      }
+    });
+
+    return response;
+  }
+
+  sum() {
+    let response = 0;
+    for (let contador = 0; contador < this.items.length; contador++) {
+
+      response = this.items[contador] + response;
+    }
+    return response;
+  }
+
+  avg() {
+
+    let sum = this.sum();
+    if (this.items.length === 0) {
+
+      throw new Error('EmptySortedList');
+    }
+    return sum / this.items.length;
+
+
+
+  }
 }
 
 module.exports = SortedList;
